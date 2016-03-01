@@ -102,6 +102,11 @@ set -e
 mkdir -p tmp/repo_tmp/unpack
 cd tmp/repo_tmp/unpack
 git init --bare .
+rm -rf hooks
+git config --file config gc.auto 500
+git config --file config gc.autopacklimit 5
+git config --file config gc.pruneexpire now
+git config --file config gc.autodetach false
 tar -zcf ../repack.tgz .
 curl -o /dev/null --upload-file ../repack.tgz '#{repo_put_url}'
 exit
