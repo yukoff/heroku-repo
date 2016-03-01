@@ -65,6 +65,14 @@ EOF
     system("curl -o #{app}-repo.tgz '#{repo_get_url}'")
   end
 
+  # repo:upload
+  #
+  # Upload the repository
+  def upload
+    puts repo_put_url
+    system("curl -o /dev/null --upload-file #{app}-repo.tgz '#{repo_put_url}'")
+  end
+
   # repo:clone
   #
   # Sets the bare repo for immediate consumption
