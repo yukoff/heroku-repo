@@ -113,7 +113,7 @@ exit
 EOF
   end
 
-  private
+  protected
 
   def cache_get_url
     release['cache_get_url']
